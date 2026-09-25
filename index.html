@@ -2,155 +2,253 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
   <title>Doctor Pharma 33</title>
 
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    body {
-      margin: 0;
-      background: #0b0b0d;
-      color: white;
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background: #000;
       font-family: Arial, sans-serif;
     }
 
-    .header {
-      text-align: center;
-      padding: 35px 20px 25px;
-      background: linear-gradient(180deg, #171719, #0b0b0d);
-    }
-
-    .logo {
-      width: 100px;
-      height: 100px;
-      margin: auto;
-      border-radius: 50%;
-      background: #252525;
+    body {
+      color: white;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 42px;
-      border: 2px solid #444;
     }
 
-    h1 {
-      margin: 15px 0 5px;
-      font-size: 27px;
+    .app {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      padding: 35px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .subtitle {
-      color: #999;
-      font-size: 14px;
+    /* LOGO */
+    .logo {
+      width: 68%;
+      max-width: 285px;
+      margin: 20px auto 35px;
+      display: block;
+      filter: drop-shadow(0 0 14px rgba(255,0,0,.55));
     }
 
-    .container {
-      padding: 20px;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .welcome {
-      background: #171719;
-      padding: 18px;
-      border-radius: 18px;
-      margin-bottom: 20px;
-    }
-
-    .welcome h2 {
-      margin-top: 0;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+    /* MENU */
+    .menu {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
     .category {
-      background: #1c1c1f;
-      border: 1px solid #333;
-      border-radius: 18px;
-      padding: 25px 10px;
-      text-align: center;
+      width: 100%;
+      min-height: 92px;
+
+      display: grid;
+      grid-template-columns: 105px 1fr 55px;
+      align-items: center;
+
+      background:
+        radial-gradient(circle at center,
+        rgba(120,0,0,.35),
+        rgba(0,0,0,.95) 65%);
+
+      border: 3px solid #ff1717;
+      border-radius: 22px;
+
+      box-shadow:
+        0 0 8px #ff0000,
+        inset 0 0 15px rgba(255,0,0,.25);
+
+      overflow: hidden;
       cursor: pointer;
+
+      text-decoration: none;
+      color: white;
     }
 
-    .category:active {
-      transform: scale(.97);
+    .category-image {
+      width: 100%;
+      height: 86px;
+      object-fit: contain;
+      padding: 5px;
     }
 
-    .icon {
-      font-size: 38px;
-      margin-bottom: 10px;
+    .category-name {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: -1px;
+
+      text-shadow:
+        3px 3px 0 #111,
+        0 0 9px #ff0000;
     }
 
-    .category-title {
+    .arrow {
+      width: 43px;
+      height: 43px;
+      border: 3px solid red;
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 31px;
       font-weight: bold;
+
+      box-shadow:
+        0 0 10px red,
+        inset 0 0 8px rgba(255,0,0,.5);
+    }
+
+    .page {
+      display: none;
+      width: 100%;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .back {
+      margin-bottom: 25px;
+      border: 2px solid #ff1717;
+      background: #111;
+      color: white;
+      border-radius: 15px;
+      padding: 12px 18px;
       font-size: 17px;
     }
 
-    .bottom {
-      margin-top: 30px;
+    .page h1 {
       text-align: center;
-      color: #777;
-      font-size: 13px;
+      margin: 25px 0;
+    }
+
+    @media (max-width: 360px) {
+      .category {
+        grid-template-columns: 85px 1fr 48px;
+        min-height: 80px;
+      }
+
+      .category-image {
+        height: 75px;
+      }
+
+      .category-name {
+        font-size: 25px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <div class="logo">👨‍⚕️</div>
-    <h1>Doctor Pharma 33</h1>
-    <div class="subtitle">Bienvenue sur notre espace</div>
-  </div>
+<div class="app">
 
-  <div class="container">
+  <!-- PAGE PRINCIPALE -->
+  <section id="home" class="page active">
 
-    <div class="welcome">
-      <h2>👋 Bienvenue</h2>
-      <p>Sélectionnez une catégorie pour découvrir notre menu.</p>
-    </div>
+    <img
+      src="logo.png"
+      alt="Doctor Pharma 33"
+      class="logo"
+    >
 
-    <div class="categories">
+    <div class="menu">
 
-      <div class="category" onclick="openCategory('categorie1')">
-        <div class="icon">📦</div>
-        <div class="category-title">Catégorie 1</div>
-      </div>
+      <a class="category" onclick="openPage('cat1')">
+        <img src="cat1.png" class="category-image">
+        <div class="category-name">CATÉGORIE 1</div>
+        <div class="arrow">›</div>
+      </a>
 
-      <div class="category" onclick="openCategory('categorie2')">
-        <div class="icon">⭐</div>
-        <div class="category-title">Catégorie 2</div>
-      </div>
+      <a class="category" onclick="openPage('cat2')">
+        <img src="cat2.png" class="category-image">
+        <div class="category-name">CATÉGORIE 2</div>
+        <div class="arrow">›</div>
+      </a>
 
-      <div class="category" onclick="openCategory('nouveautes')">
-        <div class="icon">🔥</div>
-        <div class="category-title">Nouveautés</div>
-      </div>
-
-      <div class="category" onclick="openCategory('contact')">
-        <div class="icon">💬</div>
-        <div class="category-title">Contact</div>
-      </div>
+      <a class="category" onclick="openPage('cat3')">
+        <img src="cat3.png" class="category-image">
+        <div class="category-name">CATÉGORIE 3</div>
+        <div class="arrow">›</div>
+      </a>
 
     </div>
+  </section>
 
-    <div class="bottom">
-      Doctor Pharma 33
-    </div>
 
-  </div>
+  <!-- CATÉGORIE 1 -->
+  <section id="cat1" class="page">
 
-  <script>
-    function openCategory(category) {
-      alert("Ouverture : " + category);
-    }
-  </script>
+    <button class="back" onclick="openPage('home')">
+      ← Retour
+    </button>
+
+    <h1>Catégorie 1</h1>
+
+  </section>
+
+
+  <!-- CATÉGORIE 2 -->
+  <section id="cat2" class="page">
+
+    <button class="back" onclick="openPage('home')">
+      ← Retour
+    </button>
+
+    <h1>Catégorie 2</h1>
+
+  </section>
+
+
+  <!-- CATÉGORIE 3 -->
+  <section id="cat3" class="page">
+
+    <button class="back" onclick="openPage('home')">
+      ← Retour
+    </button>
+
+    <h1>Catégorie 3</h1>
+
+  </section>
+
+</div>
+
+
+<script>
+  function openPage(pageId) {
+
+    document.querySelectorAll(".page").forEach(page => {
+      page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+</script>
 
 </body>
 </html>
