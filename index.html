@@ -18,109 +18,110 @@
       width: 100%;
       min-height: 100%;
       background: #000;
-      font-family: Arial, sans-serif;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
-      color: white;
-      display: flex;
-      justify-content: center;
+      padding: 20px 16px 35px;
     }
 
     .app {
       width: 100%;
       max-width: 430px;
-      min-height: 100vh;
-      padding: 35px 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin: 0 auto;
     }
 
-    /* LOGO */
-    .logo {
-      width: 68%;
-      max-width: 285px;
-      margin: 20px auto 35px;
-      display: block;
-      filter: drop-shadow(0 0 14px rgba(255,0,0,.55));
-    }
+    /* ===== LOGO ===== */
 
-    /* MENU */
-    .menu {
+    .logo-box {
       width: 100%;
+      height: 205px;
+      background: #000;
+      border-radius: 22px;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 22px;
+    }
+
+    .logo-box img {
+      width: 100%;
+      height: 255px;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+
+    /* ===== TITRE ===== */
+
+    h1 {
+      text-align: center;
+      font-size: 25px;
+      margin-bottom: 7px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    /* ===== 3 CATEGORIES ===== */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
     }
 
     .category {
-      width: 100%;
-      min-height: 92px;
-
-      display: grid;
-      grid-template-columns: 105px 1fr 55px;
-      align-items: center;
-
-      background:
-        radial-gradient(circle at center,
-        rgba(120,0,0,.35),
-        rgba(0,0,0,.95) 65%);
-
-      border: 3px solid #ff1717;
-      border-radius: 22px;
-
-      box-shadow:
-        0 0 8px #ff0000,
-        inset 0 0 15px rgba(255,0,0,.25);
-
+      position: relative;
+      height: 145px;
+      background: #151515;
+      border: 1px solid #303030;
+      border-radius: 17px;
       overflow: hidden;
       cursor: pointer;
-
-      text-decoration: none;
-      color: white;
+      transition: transform .15s ease;
     }
 
-    .category-image {
+    .category:active {
+      transform: scale(.96);
+    }
+
+    .category img {
       width: 100%;
-      height: 86px;
-      object-fit: contain;
-      padding: 5px;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .category-name {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      padding: 9px 4px;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(0,0,0,.92)
+        );
+
       text-align: center;
-      font-size: 30px;
-      font-weight: 900;
-      font-style: italic;
-      letter-spacing: -1px;
-
-      text-shadow:
-        3px 3px 0 #111,
-        0 0 9px #ff0000;
+      font-size: 13px;
+      font-weight: 700;
     }
 
-    .arrow {
-      width: 43px;
-      height: 43px;
-      border: 3px solid red;
-      border-radius: 50%;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      font-size: 31px;
-      font-weight: bold;
-
-      box-shadow:
-        0 0 10px red,
-        inset 0 0 8px rgba(255,0,0,.5);
-    }
+    /* ===== PAGES CATEGORIES ===== */
 
     .page {
       display: none;
-      width: 100%;
     }
 
     .page.active {
@@ -128,34 +129,32 @@
     }
 
     .back {
-      margin-bottom: 25px;
-      border: 2px solid #ff1717;
-      background: #111;
+      border: 1px solid #333;
+      background: #151515;
       color: white;
-      border-radius: 15px;
-      padding: 12px 18px;
-      font-size: 17px;
+
+      padding: 10px 15px;
+      border-radius: 12px;
+
+      font-size: 15px;
+      margin-bottom: 20px;
+      cursor: pointer;
     }
 
-    .page h1 {
-      text-align: center;
-      margin: 25px 0;
+    .page-title {
+      font-size: 25px;
+      margin-bottom: 18px;
     }
 
-    @media (max-width: 360px) {
-      .category {
-        grid-template-columns: 85px 1fr 48px;
-        min-height: 80px;
-      }
-
-      .category-image {
-        height: 75px;
-      }
-
-      .category-name {
-        font-size: 25px;
-      }
+    .content-box {
+      background: #151515;
+      border: 1px solid #303030;
+      border-radius: 18px;
+      padding: 20px;
+      color: #ddd;
+      line-height: 1.5;
     }
+
   </style>
 </head>
 
@@ -163,91 +162,173 @@
 
 <div class="app">
 
-  <!-- PAGE PRINCIPALE -->
-  <section id="home" class="page active">
+  <!-- ================= ACCUEIL ================= -->
 
-    <img
-      src="logo.png"
-      alt="Doctor Pharma 33"
-      class="logo"
-    >
+  <div id="home" class="page active">
 
-    <div class="menu">
+    <div class="logo-box">
+      <!-- On ajoutera ton vrai logo ici -->
+      <img
+        src="logo.jpg"
+        alt="Doctor Pharma 33">
+    </div>
 
-      <a class="category" onclick="openPage('cat1')">
-        <img src="cat1.png" class="category-image">
-        <div class="category-name">CATÉGORIE 1</div>
-        <div class="arrow">›</div>
-      </a>
+    <h1>Doctor Pharma 33</h1>
 
-      <a class="category" onclick="openPage('cat2')">
-        <img src="cat2.png" class="category-image">
-        <div class="category-name">CATÉGORIE 2</div>
-        <div class="arrow">›</div>
-      </a>
+    <div class="subtitle">
+      Sélectionnez une catégorie
+    </div>
 
-      <a class="category" onclick="openPage('cat3')">
-        <img src="cat3.png" class="category-image">
-        <div class="category-name">CATÉGORIE 3</div>
-        <div class="arrow">›</div>
-      </a>
+
+    <div class="categories">
+
+      <!-- CATEGORIE 1 -->
+
+      <div class="category"
+           onclick="openPage('cat1')">
+
+        <img
+          src="categorie1.jpg"
+          alt="Catégorie 1">
+
+        <div class="category-name">
+          CATÉGORIE 1
+        </div>
+
+      </div>
+
+
+      <!-- CATEGORIE 2 -->
+
+      <div class="category"
+           onclick="openPage('cat2')">
+
+        <img
+          src="categorie2.jpg"
+          alt="Catégorie 2">
+
+        <div class="category-name">
+          CATÉGORIE 2
+        </div>
+
+      </div>
+
+
+      <!-- CATEGORIE 3 -->
+
+      <div class="category"
+           onclick="openPage('cat3')">
+
+        <img
+          src="categorie3.jpg"
+          alt="Catégorie 3">
+
+        <div class="category-name">
+          CATÉGORIE 3
+        </div>
+
+      </div>
 
     </div>
-  </section>
+
+  </div>
 
 
-  <!-- CATÉGORIE 1 -->
-  <section id="cat1" class="page">
+  <!-- ================= CATEGORIE 1 ================= -->
 
-    <button class="back" onclick="openPage('home')">
+  <div id="cat1" class="page">
+
+    <button class="back"
+            onclick="home()">
       ← Retour
     </button>
 
-    <h1>Catégorie 1</h1>
+    <h2 class="page-title">
+      Catégorie 1
+    </h2>
 
-  </section>
+    <div class="content-box">
+      Contenu de la catégorie 1.
+    </div>
+
+  </div>
 
 
-  <!-- CATÉGORIE 2 -->
-  <section id="cat2" class="page">
+  <!-- ================= CATEGORIE 2 ================= -->
 
-    <button class="back" onclick="openPage('home')">
+  <div id="cat2" class="page">
+
+    <button class="back"
+            onclick="home()">
       ← Retour
     </button>
 
-    <h1>Catégorie 2</h1>
+    <h2 class="page-title">
+      Catégorie 2
+    </h2>
 
-  </section>
+    <div class="content-box">
+      Contenu de la catégorie 2.
+    </div>
+
+  </div>
 
 
-  <!-- CATÉGORIE 3 -->
-  <section id="cat3" class="page">
+  <!-- ================= CATEGORIE 3 ================= -->
 
-    <button class="back" onclick="openPage('home')">
+  <div id="cat3" class="page">
+
+    <button class="back"
+            onclick="home()">
       ← Retour
     </button>
 
-    <h1>Catégorie 3</h1>
+    <h2 class="page-title">
+      Catégorie 3
+    </h2>
 
-  </section>
+    <div class="content-box">
+      Contenu de la catégorie 3.
+    </div>
+
+  </div>
 
 </div>
 
 
 <script>
-  function openPage(pageId) {
 
-    document.querySelectorAll(".page").forEach(page => {
-      page.classList.remove("active");
-    });
+  function openPage(id) {
 
-    document.getElementById(pageId).classList.add("active");
+    document
+      .querySelectorAll(".page")
+      .forEach(page => {
+        page.classList.remove("active");
+      });
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    document
+      .getElementById(id)
+      .classList.add("active");
+
+    window.scrollTo(0, 0);
   }
+
+
+  function home() {
+
+    document
+      .querySelectorAll(".page")
+      .forEach(page => {
+        page.classList.remove("active");
+      });
+
+    document
+      .getElementById("home")
+      .classList.add("active");
+
+    window.scrollTo(0, 0);
+  }
+
 </script>
 
 </body>
