@@ -155,6 +155,47 @@
       line-height: 1.5;
     }
 
+    /* VIGNETTES CATÉGORIE 1 */
+
+.cat1-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cat1-card {
+  width: 100%;
+  height: 105px;
+  display: grid;
+  grid-template-columns: 105px 1fr 45px;
+  align-items: center;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cat1-card img {
+  width: 105px;
+  height: 105px;
+  object-fit: cover;
+}
+
+.cat1-name {
+  padding-left: 18px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.cat1-arrow {
+  font-size: 32px;
+  color: white;
+  text-align: center;
+}
+
   </style>
 </head>
 
@@ -247,9 +288,33 @@
       Catégorie 1
     </h2>
 
-    <div class="content-box">
-      Contenu de la catégorie 1.
-    </div>
+   <div class="cat1-list">
+
+  <div class="cat1-card" onclick="openPage('120u')">
+    <img src="120u.jpg" alt="120u">
+    <div class="cat1-name">120u</div>
+    <div class="cat1-arrow">›</div>
+  </div>
+
+  <div class="cat1-card" onclick="openPage('frozen')">
+    <img src="frozen.jpg" alt="Frozen">
+    <div class="cat1-name">FROZEN</div>
+    <div class="cat1-arrow">›</div>
+  </div>
+
+  <div class="cat1-card" onclick="openPage('static')">
+    <img src="static.jpg" alt="Static">
+    <div class="cat1-name">STATIC</div>
+    <div class="cat1-arrow">›</div>
+  </div>
+
+  <div class="cat1-card" onclick="openPage('double-static')">
+    <img src="double-static.jpg" alt="Double Static">
+    <div class="cat1-name">DOUBLE STATIC</div>
+    <div class="cat1-arrow">›</div>
+  </div>
+
+</div>
 
   </div>
 
